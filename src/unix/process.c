@@ -34,6 +34,11 @@
 #include <poll.h>
 #include <signal.h>
 
+#ifdef __ANDROID__
+/* termux_gcc needs bthread-dev */
+#include <bthread.h>
+#endif
+
 #if defined(__APPLE__) && !TARGET_OS_IPHONE
 # include <crt_externs.h>
 # define environ (*_NSGetEnviron())

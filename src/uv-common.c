@@ -371,7 +371,7 @@ int uv_thread_setaffinity(uv_thread_t *tid,
 
   return 0;
 #else
-#if defined(__APPLE__) || defined(_AIX)
+#if defined(__APPLE__) || defined(_AIX) || defined(__BIONIC__)
   return -ENOTSUP;
 #else
   int i, r;
@@ -420,7 +420,7 @@ int uv_thread_getaffinity(uv_thread_t *tid,
 
   return 0;
 #else
-#if defined(__APPLE__) || defined(_AIX)
+#if defined(__APPLE__) || defined(_AIX) || defined(__BIONIC__)
   return -ENOTSUP;
 #else
   int i;
